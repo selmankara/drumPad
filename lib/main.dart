@@ -31,48 +31,27 @@ class DrumPage extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Expanded(
-              child: Row(
-                children: [
-                  Expanded(child: buildDrumPad('bongo', Colors.blueAccent)),
-                  Expanded(child: buildDrumPad('bip', Colors.redAccent)),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Row(
-                children: [
-                  Expanded(child: buildDrumPad('clap1', Colors.purpleAccent)),
-                  Expanded(child: buildDrumPad('clap2', Colors.blueGrey)),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Row(
-                children: [
-                  Expanded(child: buildDrumPad('clap3', Colors.orangeAccent)),
-                  Expanded(child: buildDrumPad('crash', Colors.cyanAccent)),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Row(
-                children: [
-                  Expanded(child: buildDrumPad('how', Colors.pinkAccent)),
-                  Expanded(child: buildDrumPad('oobah', Colors.brown)),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Row(
-                children: [
-                  Expanded(child: buildDrumPad('ridebel', Colors.blue)),
-                  Expanded(child: buildDrumPad('woo', Colors.red)),
-                ],
-              ),
-            ),
+            buildDrumPadRow(
+                'bongo', Colors.blueAccent, 'bip', Colors.redAccent),
+            buildDrumPadRow(
+                'clap1', Colors.purpleAccent, 'clap2', Colors.blueGrey),
+            buildDrumPadRow(
+                'clap3', Colors.orangeAccent, 'crash', Colors.cyanAccent),
+            buildDrumPadRow('how', Colors.pinkAccent, 'oobah', Colors.brown),
+            buildDrumPadRow('ridebel', Colors.blue, 'woo', Colors.red),
           ],
         ),
+      ),
+    );
+  }
+
+  Expanded buildDrumPadRow(ses1, renk1, ses2, renk2) {
+    return Expanded(
+      child: Row(
+        children: [
+          Expanded(child: buildDrumPad(ses1, renk1)),
+          Expanded(child: buildDrumPad(ses2, renk2)),
+        ],
       ),
     );
   }
